@@ -26,10 +26,14 @@ int Partition(const std::vector<T>& v,int ini,int fin){
 	int i=ini;
 	for(int j=ini;j<=(fin-1);j++){
 		if(v[j]<= x){
-			v[i]=v[j];
+			T aux = v[j];
+                        v[j] = v[i];
+                        v[i] = aux;
 			i++;
 		}
-		v.push_back(v[i]);
+		T aux = v[j];
+                v[j] = v[i];
+                v[i] = aux;
 		return i;
 	}
 }
